@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pipoca Gourmet Curitiba — Lembrancinhas personalizadas, brindes corporativos e delivery. Pedido pelo WhatsApp. Entrega em Curitiba e região.">
+<title>Pipoca Gourmet Curitiba — Lembrancinhas & Delivery</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --mel: #B85C00;
+    --mel-vivo: #E87C1E;
+    --pipoca: #FFF8ED;
+    --noite: #1C1008;
+    --noite-soft: #2E1F0A;
+    --cinza: #7A6A58;
+    --borda: #F0DFC0;
+    --branco: #FFFFFF;
+    --verde-wa: #25D366;
+    --verde-wa-dark: #1DA851;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--pipoca);
+    color: var(--noite);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── BARRA FLUTUANTE WHATSAPP ── */
+  .wa-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--verde-wa);
+    color: var(--branco);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 14px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    text-decoration: none;
+    animation: pulse-wa 2.5s infinite;
+  }
+  .wa-float svg { width: 22px; height: 22px; flex-shrink: 0; }
+  @keyframes pulse-wa {
+    0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+    50% { box-shadow: 0 4px 32px rgba(37,211,102,0.7); }
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--noite);
+    padding: 20px 20px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(232,124,30,0.25) 0%, transparent 70%);
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(232,124,30,0.15);
+    border: 1px solid rgba(232,124,30,0.4);
+    color: var(--mel-vivo);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(32px, 8vw, 52px);
+    font-weight: 900;
+    color: var(--branco);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--mel-vivo);
+    display: block;
+  }
+  .hero-sub {
+    font-size: 15px;
+    color: #C0A888;
+    max-width: 320px;
+    margin: 0 auto 28px;
+  }
+  .btn-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--verde-wa);
+    color: var(--branco);
+    font-weight: 700;
+    font-size: 16px;
+    padding: 16px 28px;
+    border-radius: 14px;
+    text-decoration: none;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto 12px;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .btn-hero:active { transform: scale(0.98); background: var(--verde-wa-dark); }
+  .btn-hero svg { width: 22px; height: 22px; }
+  .hero-trust {
+    font-size: 12px;
+    color: #7A6A58;
+    margin-bottom: 32px;
+  }
+  .hero-pills {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding-bottom: 32px;
+  }
+  .pill {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: #C0A888;
+    font-size: 12px;
+    padding: 6px 14px;
+    border-radius: 20px;
+  }
+
+  /* ── NÚMEROS ── */
+  .numeros {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--borda);
+    border-top: 1px solid var(--borda);
+    border-bottom: 1px solid var(--borda);
+  }
+  .numero-item {
+    background: var(--branco);
+    text-align: center;
+    padding: 20px 8px;
+  }
+  .numero-val {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--mel);
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .numero-label {
+    font-size: 11px;
+    color: var(--cinza);
+    line-height: 1.3;
+  }
+
+  /* ── TABS DE PÚBLICO ── */
+  .tabs-section { padding: 40px 20px 0; }
+  .tabs-section h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--noite);
+    margin-bottom: 6px;
+    text-align: center;
+  }
+  .tabs-section .subtitle {
+    font-size: 14px;
+    color: var(--cinza);
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex-shrink: 0;
+    background: var(--branco);
+    border: 2px solid var(--borda);
+    color: var(--cinza);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Inter', sans-serif;
+  }
+  .tab-btn.active {
+    background: var(--noite);
+    border-color: var(--noite);
+    color: var(--branco);
+  }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* ── CARDS DE PRODUTO ── */
+  .produto-card {
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .produto-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--mel-vivo);
+  }
+  .produto-card.destaque::before { background: var(--verde-wa); }
+  .produto-card.corp::before { background: #7C3AED; }
+  .prod-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--mel);
+    margin-bottom: 6px;
+  }
+  .prod-tag.verde { color: var(--verde-wa-dark); }
+  .prod-tag.roxo { color: #7C3AED; }
+  .prod-nome {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--noite);
+    margin-bottom: 6px;
+  }
+  .prod-desc {
+    font-size: 13px;
+    color: var(--cinza);
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+  .prod-rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .prod-preco {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--mel);
+  }
+  .prod-preco small {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--cinza);
+    font-family: 'Inter', sans-serif;
+  }
+  .btn-pedir {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--noite);
+    color: var(--branco);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .btn-pedir:active { background: var(--mel); }
+
+  /* ── COMO FUNCIONA ── */
+  .como-funciona {
+    background: var(--noite);
+    padding: 48px 20px;
+    margin-top: 48px;
+  }
+  .como-funciona h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--branco);
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .passos { display: flex; flex-direction: column; gap: 0; }
+  .passo {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .passo:last-child { border-bottom: none; }
+  .passo-num {
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--mel-vivo);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 40px;
+  }
+  .passo-titulo {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--branco);
+    margin-bottom: 4px;
+  }
+  .passo-desc {
+    font-size: 13px;
+    color: #9A8878;
+    line-height: 1.5;
+  }
+
+  /* ── DEPOIMENTOS ── */
+  .depoimentos {
+    padding: 48px 20px;
+  }
+  .depoimentos h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--noite);
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .dep-card {
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 12px;
+  }
+  .dep-estrelas { color: #F59E0B; font-size: 14px; margin-bottom: 8px; }
+  .dep-texto {
+    font-size: 14px;
+    color: var(--noite);
+    line-height: 1.6;
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+  .dep-autor {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--cinza);
+  }
+
+  /* ── COBERTURA ── */
+  .cobertura {
+    background: var(--branco);
+    border-top: 1px solid var(--borda);
+    border-bottom: 1px solid var(--borda);
+    padding: 32px 20px;
+    text-align: center;
+  }
+  .cobertura h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--noite);
+    margin-bottom: 16px;
+  }
+  .cidades {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+  .cidade-tag {
+    background: var(--pipoca);
+    border: 1px solid var(--borda);
+    color: var(--noite);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 20px;
+  }
+  .cidade-tag.destaque {
+    background: var(--noite);
+    color: var(--branco);
+    border-color: var(--noite);
+  }
+
+  /* ── CTA FINAL ── */
+  .cta-final {
+    background: linear-gradient(135deg, var(--mel) 0%, var(--noite) 100%);
+    padding: 52px 20px;
+    text-align: center;
+  }
+  .cta-final h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--branco);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .cta-final p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 28px;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .btn-cta-final {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--verde-wa);
+    color: var(--branco);
+    font-weight: 700;
+    font-size: 16px;
+    padding: 18px 28px;
+    border-radius: 14px;
+    text-decoration: none;
+    max-width: 360px;
+    margin: 0 auto 28px;
+    transition: transform 0.1s;
+  }
+  .btn-cta-final:active { transform: scale(0.98); }
+  .btn-cta-final svg { width: 22px; height: 22px; }
+  .cta-urgencia {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+  }
+  .cta-urgencia strong { color: var(--mel-vivo); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--noite);
+    padding: 24px 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #5A4A3A;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  footer span { color: var(--mel-vivo); }
+
+  /* ── ESPAÇO PARA O BOTÃO FLUTUANTE ── */
+  .spacer-bottom { height: 80px; }
+</style>
+</head>
+<body>
+
+<!-- BOTÃO FLUTUANTE FIXO -->
+<a href="https://wa.me/554195189789?text=Oi!%20Vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido%20🍿" class="wa-float" target="_blank">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  Fazer pedido agora
+</a>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🍿 Pipoca Gourmet Curitiba</div>
+  <h1>A lembrancinha que<em>ninguém esquece</em></h1>
+  <p class="hero-sub">Pipoca gourmet personalizada para festas, eventos corporativos e delivery em Curitiba.</p>
+
+  <a href="https://wa.me/554195189789?text=Oi!%20Quero%20fazer%20um%20pedido%20de%20pipoca%20gourmet%20🍿" class="btn-hero" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Quero meu pedido no WhatsApp
+  </a>
+  <p class="hero-trust">⚡ Resposta em até 5 minutos · Entrega em Curitiba</p>
+
+  <div class="hero-pills">
+    <span class="pill">🎀 Lembrancinhas</span>
+    <span class="pill">💼 Corporativo</span>
+    <span class="pill">🛵 Delivery</span>
+    <span class="pill">✏️ Personalizado</span>
+  </div>
+</section>
+
+<!-- NÚMEROS -->
+<div class="numeros">
+  <div class="numero-item">
+    <span class="numero-val">1000</span>
+    <span class="numero-label">embalagens<br>por semana</span>
+  </div>
+  <div class="numero-item">
+    <span class="numero-val">5★</span>
+    <span class="numero-label">avaliação<br>no Google</span>
+  </div>
+  <div class="numero-item">
+    <span class="numero-val">3 dias</span>
+    <span class="numero-label">prazo para<br>personalizado</span>
+  </div>
+</div>
+
+<!-- PRODUTOS POR PÚBLICO -->
+<section class="tabs-section">
+  <h2>O que você precisa?</h2>
+  <p class="subtitle">Escolha abaixo e veja as opções certas para você</p>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('festa')">🎀 Festas</button>
+    <button class="tab-btn" onclick="showTab('corp')">💼 Corporativo</button>
+    <button class="tab-btn" onclick="showTab('delivery')">🛵 Delivery</button>
+  </div>
+
+  <!-- FESTAS -->
+  <div class="tab-content active" id="tab-festa">
+
+    <div class="produto-card destaque">
+      <div class="prod-tag verde">⭐ Mais pedido</div>
+      <div class="prod-nome">Zip Personalizado — 30 unidades</div>
+      <div class="prod-desc">Embalagem com impressão do nome, data e tema da festa. 50g de pipoca gourmet cada. Entregamos prontas para distribuir.</div>
+      <div class="prod-rodape">
+        <div class="prod-preco">R$ 360,00 <small>· R$12/un</small></div>
+        <a href="https://wa.me/554195189789?text=Oi!%20Quero%20o%20Zip%20Personalizado%2030un%20para%20minha%20festa%20🎉" class="btn-pedir" target="_blank">Pedir agora</a>
+      </div>
+    </div>
+
+    <div class="produto-card">
+      <div class="prod-tag">🎀 Elegante</div>
+      <div class="prod-nome">Laço Caixa — 30 unidades</div>
+      <div class="prod-desc">Embalagem com laço decorativo e personalização com nome e data. 50g cada. Acabamento sofisticado para festas especiais.</div>
+      <div class="prod-rodape">
+        <div class="prod-preco">R$ 299,99 <small>· R$10/un</small></div>
+        <a href="https://wa.me/554195189789?text=Oi!%20Quero%20o%20Laço%20Caixa%2030un%20para%20minha%20festa%20🎀" class="btn-pedir" target="_blank">Pedir agora</a>
+      </div>
+    </div>
+
+    <div class="produto-card">
+      <div class="prod-tag">💛 Econômico</div>
+      <div class="prod-nome">Pocket Caixa — 30 unidades</div>
+      <div class="prod-desc">Embalagem pocket com personalização do tema da festa. 50g cada. Ótimo custo-benefício para festas maiores.</div>
+      <div class="prod-rodape">
+        <div class="prod-preco">R$ 239,90 <small>· R$8/un</small></div>
+        <a href="https://wa.me/554195189789?text=Oi!%20Quero%20o%20Pocket%20Caixa%2030un%20para%20minha%20festa%20🍿" class="btn-pedir" target="_blank">Pedir agora</a>
+      </div>
+    </div>
+
+    <div class="produto-card">
+      <div class="prod-tag">🎨 Adicional</div>
+      <div class="prod-nome">Pipoca Colorida Temática</div>
+      <div class="prod-desc">Pipoca na cor do tema da sua festa. Acréscimo sobre qualquer kit de lembrancinha. Rosa, azul, roxo e mais.</div>
+      <div class="prod-rodape">
+        <div class="prod-preco">+ R$ 30,00</div>
+        <a href="https://wa.me/554195189789?text=Oi!%20Quero%20adicionar%20pipoca%20colorida%20no%20meu%20pedido%20🎨" class="btn-pedir" target="_blank">Consultar</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CORPORATIVO -->
+  <div class="tab-content" id="tab-corp">
+
+    <div class="produto-card corp">
+      <div class="prod-tag roxo">💼 Brinde corporativo</div>
+      <div class="prod-nome">Kit com Logo da Empresa</div>
+      <div class="prod-desc">Embalagem Zip com o logo e identidade visual da sua empresa. 3 sabores à escolha. Ideal para Natal, aniversário da empresa e brindes de RH. Pedido mínimo: 50 unidades.</div>
+      <div class="prod-rodape">
+        <div class="prod-preco">R$ 25/un <small>· mín. 50un</small></div>
+        <a href="https://wa.me/554195189789?text=Oi!%20Quero%20brindes%20corporativos%20com%20logo%20da%20minha%20empresa%20💼" class="btn-pedir" target="_blank">Solicitar orçamento</a>
+      </div>
+    </div>
+
+    <div class="produto-card corp">
+      <div class="prod-tag roxo">📦 Grande volume</div>
+      <div class="prod-nome">Pedido Acima de 100 Unidades</div>
+      <div class="prod-desc">Condições especiais para pedidos corporativos de grande volume. Entrega programada com até 5 dias de antecedência. Emitimos nota fiscal.</div>
+      <div class="prod-rodape">
+        <div class="prod-preco">Sob consulta</div>
+        <a href="https://wa.me/554195189789?text=Oi!%20Preciso%20de%20um%20orçamento%20para%20mais%20de%20100%20unidades%20corporativas%20📦" class="btn-pedir" target="_blank">Solicitar orçamento</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DELIVERY -->
+  <div class="tab-content" id="tab-delivery">
+
+    <div class="produto-card destaque">
+      <div class="prod-tag verde">🛵 Pronta entrega</div>
+      <div class="prod-nome">Pipoca no Pote com Cobertura</div>
+      <div class="prod-desc">Pipoca caramelizada com cobertura artesanal. Perfeita para presentear ou para uma noite especial. Entrega hoje em Curitiba.</div>
+      <div class="prod-rodape">
+        <div class="prod-preco">R$ 69,00</div>
+        <a href="https://wa.me/554195189789?text=Oi!%20Quero%20a%20Pipoca%20no%20Pote%20com%20Cobertura%20🫙" class="btn-pedir" target="_blank">Pedir agora</a>
+      </div>
+    </div>
+
+    <div class="produto-card">
+      <div class="prod-tag">🎁 Combo</div>
+      <div class="prod-nome">Combo 5 Sabores — 100g cada</div>
+      <div class="prod-desc">Kit com 5 sabores: Caramelo, Leite Ninho, Paçoca, Chocolate e mais. 100g cada. Melhor custo-benefício para presentear.</div>
+      <div class="prod-rodape">
+        <div class="prod-preco">R$ 124,70</div>
+        <a href="https://wa.me/554195189789?text=Oi!%20Quero%20o%20Combo%205%20Sabores%20100g%20🍿" class="btn-pedir" target="_blank">Pedir agora</a>
+      </div>
+    </div>
+
+    <div class="produto-card">
+      <div class="prod-tag">🍿 Unitário</div>
+      <div class="prod-nome">Pipoca Gourmet 100g</div>
+      <div class="prod-desc">Escolha seu sabor favorito: Caramelo, Leite Ninho, Paçoca ou Chocolate. Milho mushroom artesanal.</div>
+      <div class="prod-rodape">
+        <div class="prod-preco">R$ 18,00</div>
+        <a href="https://wa.me/554195189789?text=Oi!%20Quero%20uma%20Pipoca%20Gourmet%20100g%20🍿" class="btn-pedir" target="_blank">Pedir agora</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="como-funciona">
+  <h2>Como funciona</h2>
+  <div class="passos">
+    <div class="passo">
+      <span class="passo-num">1</span>
+      <div>
+        <div class="passo-titulo">Mande uma mensagem no WhatsApp</div>
+        <div class="passo-desc">Clique em qualquer botão da página. Nosso agente responde em até 5 minutos e coleta seu pedido completo.</div>
+      </div>
+    </div>
+    <div class="passo">
+      <span class="passo-num">2</span>
+      <div>
+        <div class="passo-titulo">Escolha o sabor e a personalização</div>
+        <div class="passo-desc">Para lembrancinhas, envie o tema e a data do evento. Para delivery, escolha o sabor e confirmamos a entrega.</div>
+      </div>
+    </div>
+    <div class="passo">
+      <span class="passo-num">3</span>
+      <div>
+        <div class="passo-titulo">Confirme e aguarde</div>
+        <div class="passo-desc">Produzimos com carinho. Delivery no mesmo dia. Personalizado em 3 a 5 dias úteis. Entregamos ou você retira.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depoimentos">
+  <h2>Quem já pediu, aprovou</h2>
+
+  <div class="dep-card">
+    <div class="dep-estrelas">★★★★★</div>
+    <div class="dep-texto">"Fiz as lembrancinhas para o aniversário da minha filha e todos os convidados adoraram. A embalagem ficou linda com o nome dela!"</div>
+    <div class="dep-autor">Ana Paula M. — Curitiba</div>
+  </div>
+
+  <div class="dep-card">
+    <div class="dep-estrelas">★★★★★</div>
+    <div class="dep-texto">"Usamos como brinde de fim de ano para toda a equipe. Entrega pontual, embalagem com o logo da empresa perfeita. Recomendo muito!"</div>
+    <div class="dep-autor">Ricardo S. — Empresa de TI, Curitiba</div>
+  </div>
+
+  <div class="dep-card">
+    <div class="dep-estrelas">★★★★★</div>
+    <div class="dep-texto">"Pipoca chegou rapidíssimo e estava deliciosa. O sabor de Leite Ninho é incrível. Já é meu delivery favorito de Curitiba."</div>
+    <div class="dep-autor">Fernanda K. — Água Verde, Curitiba</div>
+  </div>
+</section>
+
+<!-- COBERTURA -->
+<div class="cobertura">
+  <h3>📍 Onde entregamos</h3>
+  <div class="cidades">
+    <span class="cidade-tag destaque">Curitiba</span>
+    <span class="cidade-tag">São José dos Pinhais</span>
+    <span class="cidade-tag">Colombo</span>
+    <span class="cidade-tag">Fazenda Rio Grande</span>
+    <span class="cidade-tag">Pinhais</span>
+    <span class="cidade-tag">Araucária</span>
+    <span class="cidade-tag">📦 Envio para todo o Brasil</span>
+  </div>
+</div>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <h2>Pronto para fazer seu pedido?</h2>
+  <p>Atendimento rápido, produção artesanal e entrega garantida em Curitiba.</p>
+  <a href="https://wa.me/554195189789?text=Oi!%20Vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido%20🍿" class="btn-cta-final" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Falar no WhatsApp agora
+  </a>
+  <p class="cta-urgencia">⏰ Vagas limitadas para personalizado esta semana — <strong>garanta a sua data</strong></p>
+</section>
+
+<footer>
+  © 2026 <span>Pipoca Gourmet Curitiba</span> · Feito com 🍿 em Curitiba · Todos os direitos reservados
+</footer>
+
+<div class="spacer-bottom"></div>
+
+<script>
+  function showTab(id) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
